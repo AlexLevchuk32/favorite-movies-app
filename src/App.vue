@@ -6,10 +6,12 @@
 		</header>
 
 		<div class="tabs">
-			<button :class="['btn', { btn_green: movieStore.activeTab === 1 }]">
+			<button :class="['btn', { btn_green: movieStore.activeTab === 1 }]" 
+			@click="setActiveTab(1)">
 				Favorite
 			</button>
-			<button :class="['btn', { btn_green: movieStore.activeTab === 2 }]">
+			<button :class="['btn', { btn_green: movieStore.activeTab === 2 }]" 
+			@click="setActiveTab(2)">
 				Search
 			</button>
 		</div>
@@ -42,6 +44,10 @@
 	import { useMovieStore } from './stores/MovieStore';
 
 	const movieStore = useMovieStore();
+
+	const setActiveTab = (id) =>{
+		movieStore.setActiveTab(id);
+	}
 </script>
 
 <style scoped>
